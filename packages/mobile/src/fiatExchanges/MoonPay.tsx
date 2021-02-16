@@ -1,6 +1,5 @@
 import colors from '@celo/react-components/styles/colors'
 import { StackScreenProps } from '@react-navigation/stack'
-import BigNumber from 'bignumber.js'
 import * as React from 'react'
 import { ActivityIndicator, StyleSheet, View } from 'react-native'
 import { useSelector } from 'react-redux'
@@ -11,7 +10,7 @@ import { CURRENCY_ENUM } from 'src/geth/consts'
 import config from 'src/geth/networkConfig'
 import i18n from 'src/i18n'
 import { emptyHeader } from 'src/navigator/Headers'
-import { navigateBack } from 'src/navigator/NavigationService'
+import { navigate } from 'src/navigator/NavigationService'
 import { Screens } from 'src/navigator/Screens'
 import { TopBarTextButton } from 'src/navigator/TopBarButton'
 import { StackParamList } from 'src/navigator/types'
@@ -22,15 +21,20 @@ const currencyToCode = {
   [CURRENCY_ENUM.DOLLAR]: 'cusd',
 }
 
-export const moonPayOptions = () => ({
-  ...emptyHeader,
-  headerLeft: () => <TopBarTextButton title={i18n.t('global:done')} onPress={navigateBack} />,
-})
+export const moonPayOptions = () => {
+  const navigateToFiatExchange = () => navigate(Screens.FiatExchange)
+  return {
+    ...emptyHeader,
+    headerLeft: () => (
+      <TopBarTextButton title={i18n.t('global:done')} onPress={navigateToFiatExchange} />
+    ),
+  }
+}
 
-type RouteProps = StackScreenProps<StackParamList, Screens.MoonPayScreen>
+type RouteProps = StackScreenProps<StackParamList, Screens.MoonPay>
 type Props = RouteProps
 
-function MoonPayScreen({ route }: Props) {
+function FiatExchangeWeb({ route }: Props) {
   const [uri, setUri] = React.useState('')
   const { localAmount, currencyCode, currencyToBuy } = route.params
   const account = useSelector(currentAccountSelector)
@@ -46,8 +50,6 @@ function MoonPayScreen({ route }: Props) {
         body: JSON.stringify({
           currency: currencyToCode[currencyToBuy],
           address: account,
-          fiatCurrency: currencyCode,
-          fiatAmount: new BigNumber(localAmount).toString(),
         }),
       })
       const json = await response.json()
@@ -78,4 +80,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default MoonPayScreen
+export default FiatExchangeWeb

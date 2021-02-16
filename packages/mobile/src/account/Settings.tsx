@@ -186,6 +186,10 @@ export class Account extends React.Component<Props, State> {
     this.props.navigation.navigate(Screens.Debug)
   }
 
+  openExperimentalScreen = () => {
+    this.props.navigation.navigate(Screens.ExperimentalScreen)
+  }
+
   onDevSettingsTriggerPress = () => {
     this.props.devModeTriggerClicked()
   }
@@ -231,6 +235,11 @@ export class Account extends React.Component<Props, State> {
           <View style={styles.devSettingsItem}>
             <TouchableOpacity onPress={Sentry.nativeCrash}>
               <Text>Trigger a crash</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.devSettingsItem}>
+            <TouchableOpacity onPress={this.openExperimentalScreen}>
+              <Text>ExperimentalScreen</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.devSettingsItem}>

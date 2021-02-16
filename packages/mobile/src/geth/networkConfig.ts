@@ -27,7 +27,6 @@ interface NetworkConfig {
   odisUrl: string // Phone Number Privacy service url
   odisPubKey: string
   signMoonpayUrl: string
-  rampWidgetUrl: string
   useDiscovery: boolean
   useStaticNodes: boolean
   komenciUrl: string
@@ -41,9 +40,6 @@ const signMoonpayUrlStaging =
   'https://us-central1-celo-org-mobile.cloudfunctions.net/signMoonpayStaging'
 const signMoonpayUrlProd =
   'https://us-central1-celo-mobile-mainnet.cloudfunctions.net/signMoonpayProd'
-
-const rampWidgetStaging = 'https://ri-widget-staging.firebaseapp.com/'
-const rampWidgetProd = 'https://buy.ramp.network'
 
 const KOMENCI_URL_MAINNET = 'https://mainnet-komenci.azurefd.net'
 const KOMENCI_URL_STAGING = 'https://staging-komenci.azurefd.net'
@@ -70,7 +66,6 @@ const networkConfigs: { [testnet: string]: NetworkConfig } = {
     odisUrl: OdisUtils.Query.ODIS_ALFAJORES_CONTEXT.odisUrl,
     odisPubKey: OdisUtils.Query.ODIS_ALFAJORES_CONTEXT.odisPubKey,
     signMoonpayUrl: signMoonpayUrlStaging,
-    rampWidgetUrl: rampWidgetStaging,
     useDiscovery: GETH_USE_FULL_NODE_DISCOVERY,
     useStaticNodes: GETH_USE_STATIC_NODES,
     komenciUrl: KOMENCI_URL_STAGING,
@@ -87,7 +82,6 @@ const networkConfigs: { [testnet: string]: NetworkConfig } = {
     odisUrl: OdisUtils.Query.ODIS_MAINNET_CONTEXT.odisUrl,
     odisPubKey: OdisUtils.Query.ODIS_MAINNET_CONTEXT.odisPubKey,
     signMoonpayUrl: signMoonpayUrlProd,
-    rampWidgetUrl: rampWidgetProd,
     useDiscovery: GETH_USE_FULL_NODE_DISCOVERY,
     useStaticNodes: GETH_USE_STATIC_NODES,
     komenciUrl: KOMENCI_URL_MAINNET,

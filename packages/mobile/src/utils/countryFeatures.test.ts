@@ -16,7 +16,6 @@ describe(getCountryFeaturesSelector, () => {
         "KOTANI_SUPPORTED": false,
         "MOONPAY_DISABLED": true,
         "PONTO_SUPPORTED": false,
-        "RAMP_DISABLED": true,
         "RESTRICTED_CP_DOTO": false,
         "SANCTIONED_COUNTRY": false,
       }
@@ -36,7 +35,6 @@ describe(getCountryFeaturesSelector, () => {
         "KOTANI_SUPPORTED": false,
         "MOONPAY_DISABLED": false,
         "PONTO_SUPPORTED": true,
-        "RAMP_DISABLED": false,
         "RESTRICTED_CP_DOTO": true,
         "SANCTIONED_COUNTRY": false,
       }
@@ -56,7 +54,6 @@ describe(getCountryFeaturesSelector, () => {
         "KOTANI_SUPPORTED": false,
         "MOONPAY_DISABLED": false,
         "PONTO_SUPPORTED": false,
-        "RAMP_DISABLED": false,
         "RESTRICTED_CP_DOTO": true,
         "SANCTIONED_COUNTRY": false,
       }
@@ -76,7 +73,6 @@ describe(getCountryFeaturesSelector, () => {
         "KOTANI_SUPPORTED": false,
         "MOONPAY_DISABLED": false,
         "PONTO_SUPPORTED": false,
-        "RAMP_DISABLED": false,
         "RESTRICTED_CP_DOTO": false,
         "SANCTIONED_COUNTRY": true,
       }

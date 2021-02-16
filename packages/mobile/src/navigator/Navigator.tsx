@@ -34,6 +34,7 @@ import ExchangeTradeScreen from 'src/exchange/ExchangeTradeScreen'
 import WithdrawCeloQrScannerScreen from 'src/exchange/WithdrawCeloQrScannerScreen'
 import WithdrawCeloReviewScreen from 'src/exchange/WithdrawCeloReviewScreen'
 import WithdrawCeloScreen from 'src/exchange/WithdrawCeloScreen'
+import ExperimentalScreen from 'src/experimental/ExperimentalScreen'
 import BidaliScreen from 'src/fiatExchanges/BidaliScreen'
 import ExternalExchanges, {
   externalExchangesScreenOptions,
@@ -44,9 +45,8 @@ import FiatExchangeOptions, {
 import LocalProviderCashOut, {
   localProviderCashOutOptions,
 } from 'src/fiatExchanges/LocalProviderCashOut'
-import MoonPayScreen, { moonPayOptions } from 'src/fiatExchanges/MoonPayScreen'
+import MoonPay, { moonPayOptions } from 'src/fiatExchanges/MoonPay'
 import ProviderOptionsScreen from 'src/fiatExchanges/ProviderOptionsScreen'
-import RampScreen, { rampOptions } from 'src/fiatExchanges/RampScreen'
 import Spend, { spendScreenOptions } from 'src/fiatExchanges/Spend'
 import { CURRENCY_ENUM } from 'src/geth/consts'
 import i18n from 'src/i18n'
@@ -459,12 +459,7 @@ const settingsScreens = (Navigator: typeof Stack) => (
       name={Screens.LocalProviderCashOut}
       component={LocalProviderCashOut}
     />
-    <Navigator.Screen
-      options={moonPayOptions}
-      name={Screens.MoonPayScreen}
-      component={MoonPayScreen}
-    />
-    <Navigator.Screen options={rampOptions} name={Screens.RampScreen} component={RampScreen} />
+    <Navigator.Screen options={moonPayOptions} name={Screens.MoonPay} component={MoonPay} />
     <Navigator.Screen
       options={ProviderOptionsScreen.navigationOptions}
       name={Screens.ProviderOptionsScreen}
@@ -501,6 +496,11 @@ const generalScreens = (Navigator: typeof Stack) => (
       name={Screens.TransactionReview}
       component={TransactionReview}
       options={transactionReviewOptions}
+    />
+    <Navigator.Screen
+      options={ExperimentalScreen.navigationOptions}
+      name={Screens.ExperimentalScreen}
+      component={ExperimentalScreen}
     />
   </>
 )

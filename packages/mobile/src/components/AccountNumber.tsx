@@ -36,28 +36,12 @@ export default function AccountNumber({ address, touchDisabled, location }: Prop
   }
   // Turns '0xce10ce10ce10ce10ce10ce10ce10ce10ce10ce10'
   // into 'ce10 ce10 ce10 ce10 ce10 ce10 ce10 ce10 ce10 ce10'
-  const addressChunks = getAddressChunks(address)
+  const addressChunks = ['0x', ...getAddressChunks(address)]
 
   const formattedAddress = (
     <>
-      <View style={[styles.line]}>
-        <View style={[styles.miniChunk]}>
-          <Text style={[styles.text]}>0x</Text>
-        </View>
-        {addressChunks.slice(0, 5).map((chunk, i) => (
-          <View key={i} style={[styles.chunk]}>
-            <Text style={[styles.text]}>{chunk}</Text>
-          </View>
-        ))}
-      </View>
-      <View style={[styles.line]}>
-        <View style={[styles.miniChunk]} />
-        {addressChunks.slice(5).map((chunk, i) => (
-          <View key={i} style={[styles.chunk]}>
-            <Text style={[styles.text]}>{chunk}</Text>
-          </View>
-        ))}
-      </View>
+      <Text style={[styles.text, styles.topText]}>{addressChunks.slice(0, 6).join(' ')}</Text>
+      <Text style={[styles.text, styles.bottomText]}>{addressChunks.slice(6).join(' ')}</Text>
     </>
   )
 
@@ -78,18 +62,14 @@ const styles = StyleSheet.create({
   container: {
     width: 215,
   },
-  line: {
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-  },
   text: {
     ...fontStyles.small,
     color: colors.gray4,
   },
-  miniChunk: {
-    width: 23,
+  topText: {
+    textAlign: 'left',
   },
-  chunk: {
-    width: 40,
+  bottomText: {
+    textAlign: 'center',
   },
 })

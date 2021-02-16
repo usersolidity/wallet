@@ -102,12 +102,7 @@ export type StackParamList = {
     isCashIn?: boolean
     amount?: BigNumber
   }
-  [Screens.MoonPayScreen]: {
-    localAmount: number
-    currencyCode: LocalCurrencyCode
-    currencyToBuy: CURRENCY_ENUM
-  }
-  [Screens.RampScreen]: {
+  [Screens.MoonPay]: {
     localAmount: number
     currencyCode: LocalCurrencyCode
     currencyToBuy: CURRENCY_ENUM
@@ -138,6 +133,7 @@ export type StackParamList = {
       }
     | undefined
   [Screens.Licenses]: undefined
+  [Screens.ExperimentalScreen]: undefined
   [Screens.LocalProviderCashOut]: {
     uri: string
   }
@@ -165,7 +161,6 @@ export type StackParamList = {
   [Screens.Profile]: undefined
   [Screens.ProviderOptionsScreen]: {
     isCashIn?: boolean
-    currency: CURRENCY_ENUM
   }
   [Screens.QRNavigator]: NestedNavigatorParams<QRTabParamList> | undefined
   [Screens.ReclaimPaymentConfirmationScreen]: {
