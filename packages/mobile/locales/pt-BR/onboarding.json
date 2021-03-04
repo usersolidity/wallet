@@ -7,7 +7,7 @@
   "welcome": {
     "title": "Compartilhe dinheiro com quem você valoriza",
     "createAccount": "Criar nova conta",
-    "restoreAccount": "Já tenho uma conta"
+    "restoreAccount": "Restaurar mi cuenta"
   },
   "contacts": {
     "header": "Conectar contatos",
@@ -24,7 +24,7 @@
     }
   },
   "createAccount": "Criar conta",
-  "restoreAccount": "Restaurar minha conta",
+  "restoreAccount": "Restaurar mi cuenta",
   "step": "Etapa {{step}} de 5",
   "selectCountryCode": "Selecione o código do país",
   "pincodeSet": {
